@@ -5,6 +5,14 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pong-SFML", "Pong-SFML.vcxproj", "{9A396CAF-E5AB-4F43-8C84-3083E2033337}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{AC80F682-3D55-C8F8-4895-A4A9EDD49434}"
+	ProjectSection(SolutionItems) = preProject
+		Source\Core\event.cpp = Source\Core\event.cpp
+		Header\Core\Event.h = Header\Core\Event.h
+		Source\Core\gameWindowManager.cpp = Source\Core\gameWindowManager.cpp
+		Header\Core\GameWindowManager.h = Header\Core\GameWindowManager.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
