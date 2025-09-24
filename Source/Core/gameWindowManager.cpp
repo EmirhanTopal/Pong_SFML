@@ -1,6 +1,6 @@
 #include "../../Header/Core/GameWindowManager.h"
 
-namespace Core
+namespace Core_N
 {
 	void GameWindowManager::initialize()
 	{
@@ -11,7 +11,7 @@ namespace Core
 
 	void GameWindowManager::createGameWindow()
 	{
-		game_Window->create(VideoMode::getDesktopMode(), game_title, sf::Style::Fullscreen);
+		game_Window->create(VideoMode::getDesktopMode(), game_title, sf::Style::Resize);
 	}
 
 	bool GameWindowManager::isGameRunning()

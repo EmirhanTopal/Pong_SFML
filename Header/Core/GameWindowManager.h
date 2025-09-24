@@ -3,7 +3,7 @@
 
 using namespace sf;
 
-namespace Core
+namespace Core_N
 {
 	class GameWindowManager
 	{
