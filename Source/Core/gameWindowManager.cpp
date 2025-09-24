@@ -11,7 +11,7 @@ namespace Core_N
 
 	void GameWindowManager::createGameWindow()
 	{
-		game_Window->create(VideoMode::getDesktopMode(), game_title, sf::Style::Resize);
+		game_Window->create(VideoMode::getDesktopMode(), game_title, sf::Style::Fullscreen);
 	}
 
 	bool GameWindowManager::isGameRunning()
