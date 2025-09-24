@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Header/Core/Event.h"
 #include "Header/Core/GameWindowManager.h"
+#include "Header/Core/Event.h"
 
 int main()
 {
@@ -11,8 +11,8 @@ int main()
     _gameWindowManager.initialize();
     while (_gameWindowManager.isGameRunning())
     {
-        _gameWindowManager.render();
         _eventManager.PoolEvents(_gameWindowManager.getGameWindow());
+        _gameWindowManager.render();
     }
     return 0;
 }

@@ -2,7 +2,7 @@
 
 namespace Event_N
 {
-	void EventManager::PoolEvents(RenderWindow *_game_Window)
+	void EventManager::PoolEvents(sf::RenderWindow *_game_Window)
 	{
 		sf::Event _event;
 		while (_game_Window->pollEvent(_event))

@@ -137,10 +137,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Core\event.cpp" />
     <ClCompile Include="Source\Core\GameWindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Core\Event.h" />
+    <ClInclude Include="Header\Core\GameWindowManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="README.md" />
+    <None Include="UpgradeLog.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
