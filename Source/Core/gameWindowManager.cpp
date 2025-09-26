@@ -19,15 +19,18 @@ namespace Core_N
 		return game_Window->isOpen();
 	}
 
-	void GameWindowManager::render()
-	{
-		game_Window->clear(sf::Color(100, 50, 50, 255));
-
-		game_Window->display();
-	}
-
 	RenderWindow* GameWindowManager::getGameWindow()
 	{
 		return game_Window;
+	}
+
+	void GameWindowManager::clearGameWindow()
+	{
+		game_Window->clear();
+	}
+
+	void GameWindowManager::displayGameWindow()
+	{
+		return game_Window->display();
 	}
 }
