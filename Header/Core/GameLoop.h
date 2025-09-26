@@ -1,5 +1,6 @@
-#include "Event.h"
+#include "../Event/Event.h"
 #include "GameWindowManager.h"
+#include "../Gameplay/Gameplay.h"
 
 namespace Core_N
 {
@@ -8,10 +9,12 @@ namespace Core_N
 		private:
 			GameWindowManager *game_window_manager;
 			Event_N::EventManager *event_manager;
+			Gameplay_N::GameplayManager *gameplay_manager;
+
 		public:
 			void initialize();
 			bool isGameRunning();
-			void poolEvent(RenderWindow *_game_window);
+			void poolEvent();
 			void update();
 			void render();
 	};

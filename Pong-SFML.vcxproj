@@ -138,14 +138,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Source\Core\event.cpp" />
+    <ClCompile Include="Source\Event\event.cpp" />
     <ClCompile Include="Source\Core\gameLoop.cpp" />
-    <ClCompile Include="Source\Core\GameWindowManager.cpp" />
+    <ClCompile Include="Source\Core\gameWindowManager.cpp" />
+    <ClCompile Include="Source\Gameplay\ball.cpp" />
+    <ClCompile Include="Source\Gameplay\gameplay.cpp" />
+    <ClCompile Include="Source\Gameplay\paddle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header\Core\Event.h" />
+    <ClInclude Include="Header\Event\Event.h" />
     <ClInclude Include="Header\Core\GameLoop.h" />
     <ClInclude Include="Header\Core\GameWindowManager.h" />
+    <ClInclude Include="Header\Gameplay\Ball.h" />
+    <ClInclude Include="Header\Gameplay\Gameplay.h" />
+    <ClInclude Include="Header\Gameplay\Paddle.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
