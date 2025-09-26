@@ -138,14 +138,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Source\Core\event.cpp" />
+    <ClCompile Include="Source\Event\event.cpp" />
     <ClCompile Include="Source\Core\gameLoop.cpp" />
-    <ClCompile Include="Source\Core\GameWindowManager.cpp" />
+    <ClCompile Include="Source\Core\gameWindowManager.cpp" />
+    <ClCompile Include="Source\Gameplay\ball.cpp" />
+    <ClCompile Include="Source\Gameplay\gameplay.cpp" />
+    <ClCompile Include="Source\Gameplay\paddle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header\Core\Event.h" />
+    <ClInclude Include="Header\Event\Event.h" />
     <ClInclude Include="Header\Core\GameLoop.h" />
     <ClInclude Include="Header\Core\GameWindowManager.h" />
+    <ClInclude Include="Header\Gameplay\Ball.h" />
+    <ClInclude Include="Header\Gameplay\Gameplay.h" />
+    <ClInclude Include="Header\Gameplay\Paddle.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -153,6 +159,11 @@
     <None Include="UpgradeLog.htm">
       <DeploymentContent>true</DeploymentContent>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\Ball.png" />
+    <Image Include="Assets\Textures\HorizontalLine.png" />
+    <Image Include="Assets\Textures\Paddle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

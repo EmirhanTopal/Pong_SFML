@@ -1,4 +1,5 @@
 #include "../../Header/Core/GameLoop.h"
+#include "../../Header/Gameplay/Gameplay.h"
 
 namespace Core_N
 {
@@ -6,6 +7,7 @@ namespace Core_N
 	{
 		game_window_manager = new GameWindowManager(); //allocate memory for GameWindowManager with new keyword because of game_window_manager is a pointer.
 		event_manager = new Event_N::EventManager(); // allocate memory for EventManager with new keyword because of event_manager is a pointer.
+		gameplay_manager = new Gameplay_N::GameplayManager(); // allocate memory for GameplayManager with new keyword because of gameplay_manager is a pointer.
 		game_window_manager->initialize(); // initalize the game window.
 	}
 
@@ -14,7 +16,7 @@ namespace Core_N
 		return game_window_manager->isGameRunning();
 	}
 
-	void GameLoop::poolEvent(RenderWindow *_game_window)
+	void GameLoop::poolEvent()
 	{
 		return event_manager->PoolEvents(game_window_manager->getGameWindow());
 	}
@@ -27,6 +29,7 @@ namespace Core_N
 	void GameLoop::render()
 	{
 		game_window_manager->clearGameWindow();
+		gameplay_manager->render(game_window_manager->getGameWindow());
 		game_window_manager->displayGameWindow();
 	}
 }
