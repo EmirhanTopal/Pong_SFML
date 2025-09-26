@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExternalIncludePath>C:\Users\MONSTER\Documents\GitHub\Pong_SFML\SFML\include\;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\MONSTER\Documents\GitHub\Pong_SFML\SFML\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -138,10 +139,12 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\Core\event.cpp" />
+    <ClCompile Include="Source\Core\gameLoop.cpp" />
     <ClCompile Include="Source\Core\GameWindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Core\Event.h" />
+    <ClInclude Include="Header\Core\GameLoop.h" />
     <ClInclude Include="Header\Core\GameWindowManager.h" />
   </ItemGroup>
   <ItemGroup>

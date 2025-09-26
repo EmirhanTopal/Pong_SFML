@@ -20,6 +20,7 @@ namespace Core_N
 			void initialize();
 			RenderWindow* getGameWindow();
 			bool isGameRunning();
-			void render();
+			void clearGameWindow();
+			void displayGameWindow();
 	};
 }

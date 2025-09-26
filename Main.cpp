@@ -1,18 +1,24 @@
 #include <iostream>
 #include "Header/Core/GameWindowManager.h"
 #include "Header/Core/Event.h"
+#include "Header/Core/GameLoop.h"
+
+using namespace Core_N;
+using namespace Event_N;
 
 int main()
 {
     // Create our window manager instance
-    Core_N::GameWindowManager _gameWindowManager;
-    Event_N::EventManager _eventManager;
+    GameWindowManager _gameWindowManager;
+    EventManager _eventManager;
+    GameLoop _gameLoop;
 
-    _gameWindowManager.initialize();
-    while (_gameWindowManager.isGameRunning())
+    _gameLoop.initialize();
+    while (_gameLoop.isGameRunning())
     {
-        _eventManager.PoolEvents(_gameWindowManager.getGameWindow());
-        _gameWindowManager.render();
+        _gameLoop.poolEvent(_gameWindowManager.getGameWindow());
+        _gameLoop.render();
+        _gameLoop.render();
     }
     return 0;
 }
