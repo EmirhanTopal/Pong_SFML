@@ -14,10 +14,10 @@ namespace Gameplay_N
 
 	void GameplayManager::render(RenderWindow* _game_window)
 	{
+		boundaries->render(_game_window);
 		ball->render(_game_window);
 		paddle_1->render(_game_window);
 		paddle_2->render(_game_window);
-		boundaries->render(_game_window);
 	}
 
 	void GameplayManager::initialize()
