@@ -14,6 +14,7 @@ namespace Gameplay_N
 
 	void GameplayManager::render(RenderWindow* _game_window)
 	{
+		boundaries->render(_game_window);
 		ball->render(_game_window);
 		paddle_1->render(_game_window);
 		paddle_2->render(_game_window);
@@ -24,5 +25,6 @@ namespace Gameplay_N
 		ball = new Ball();
 		paddle_1 = new Paddle(player1_pos_x, player1_pos_y);
 		paddle_2 = new Paddle(player2_pos_x, player2_pos_y);
+		boundaries = new Boundary();
 	}
 }

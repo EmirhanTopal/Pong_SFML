@@ -1,6 +1,7 @@
 #pragma once
 #include "Ball.h"
 #include "Paddle.h"
+#include "Boundary.h"
 
 namespace Gameplay_N
 {
@@ -8,10 +9,10 @@ namespace Gameplay_N
 	{
 		private:
 			float player1_pos_x = 40.0f;
-			float player1_pos_y = 300.0f;
+			float player1_pos_y = 540.0f;
 
-			float player2_pos_x = 1210.0f;
-			float player2_pos_y = 300.0f;
+			float player2_pos_x = 1860.0f;
+			float player2_pos_y = 540.0f;
 
 			void initialize();
 
@@ -19,6 +20,7 @@ namespace Gameplay_N
 			Ball* ball;
 			Paddle* paddle_1;
 			Paddle* paddle_2;
+			Boundary* boundaries;
 
 			GameplayManager();
 			void update();
