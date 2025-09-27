@@ -23,7 +23,9 @@ namespace Core_N
 
 	void GameLoop::update()
 	{
-
+		gameplay_manager->ball->update();
+		gameplay_manager->paddle_1->update(event_manager, 1);
+		gameplay_manager->paddle_2->update(event_manager, 2);
 	}
 
 	void GameLoop::render()
