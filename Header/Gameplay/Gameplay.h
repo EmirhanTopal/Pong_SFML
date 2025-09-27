@@ -1,6 +1,7 @@
 #pragma once
 #include "Ball.h"
 #include "Paddle.h"
+#include "Boundary.h"
 
 namespace Gameplay_N
 {
@@ -19,6 +20,7 @@ namespace Gameplay_N
 			Ball* ball;
 			Paddle* paddle_1;
 			Paddle* paddle_2;
+			Boundary* boundaries;
 
 			GameplayManager();
 			void update();
