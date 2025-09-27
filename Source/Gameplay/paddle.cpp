@@ -1,4 +1,5 @@
 #include "../../Header/Gameplay/Paddle.h"
+#include "../../Header/Gameplay/Boundary.h"
 #include "../../Header/Event/Event.h"
 
 using namespace Event_N;
@@ -11,9 +12,9 @@ namespace Gameplay_N
 		paddle_sprite.setPosition(_pos_x, _pos_y);
 	}
 
-	void Paddle::update(EventManager *_event_manager, int player_num)
+	void Paddle::update(EventManager *_event_manager, sf::Keyboard::Key upKey, sf::Keyboard::Key downKey)
 	{
-		Paddle::paddle_move(_event_manager, player_num);
+		paddle_move(_event_manager, upKey, downKey);
 	}
 
 	void Paddle::render(RenderWindow* _game_window)
@@ -21,41 +22,30 @@ namespace Gameplay_N
 		_game_window->draw(paddle_sprite);
 	}
 
-	void Paddle::paddle_move(EventManager *_event_manager, int player_num)
+	void Paddle::paddle_move(EventManager *_event_manager, sf::Keyboard::Key upKey, sf::Keyboard::Key downKey)
 	{
-		if (player_num == 1)
+		if (_event_manager->isKeyPressedEM(upKey))
 		{
-			if (_event_manager->isKeyPressedEM(sf::Keyboard::Up))
+			if (paddle_sprite.getGlobalBounds().top > 20)
 			{
 				if (velocity.y > 0)
-				{
 					velocity.y *= -1;
-				}
 				paddle_sprite.move(velocity);
 			}
-			else if (_event_manager->isKeyPressedEM(sf::Keyboard::Down))
+		}
+		else if (_event_manager->isKeyPressedEM(downKey))
+		{
+			if ((paddle_sprite.getGlobalBounds().top + paddle_sprite.getGlobalBounds().height) < 1060)
 			{
 				if (velocity.y < 0)
 					velocity.y *= -1;
 				paddle_sprite.move(velocity);
 			}
 		}
-		if (player_num == 2)
-		{
-			if (_event_manager->isKeyPressedEM(sf::Keyboard::W))
-			{
-				if (velocity.y > 0)
-				{
-					velocity.y *= -1;
-				}
-				paddle_sprite.move(velocity);
-			}
-			else if (_event_manager->isKeyPressedEM(sf::Keyboard::S))
-			{
-				if (velocity.y < 0)
-					velocity.y *= -1;
-				paddle_sprite.move(velocity);
-			}
-		}
+	}
+
+	RectangleShape Paddle::getPaddleSprite()
+	{
+		return paddle_sprite;
 	}
 }

@@ -14,13 +14,15 @@ namespace Gameplay_N
 			const float paddle_height = 140;
 
 			float paddle_speed_x = 0;
-			float paddle_speed_y = 0.05f;
+			float paddle_speed_y = 0.1f;
 			Vector2f velocity = Vector2f(paddle_speed_x, paddle_speed_y);
-			
-			void paddle_move(Event_N::EventManager *_event_manager, int player_num);
+
+			void paddle_move(Event_N::EventManager *_event_manager, sf::Keyboard::Key upKey, sf::Keyboard::Key downKey);
+
 		public:
 			Paddle(float _pos_x, float _pos_y);
-			void update(Event_N::EventManager *_event_manager, int player_num);
+			void update(Event_N::EventManager *_event_manager, sf::Keyboard::Key upKey, sf::Keyboard::Key downKey);
 			void render(RenderWindow* _game_window);
+			RectangleShape getPaddleSprite();
 	};
 }

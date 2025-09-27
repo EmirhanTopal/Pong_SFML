@@ -44,6 +44,5 @@ namespace Gameplay_N
 		public:
 			Boundary();
 			void render(RenderWindow *_game_window);
-
 	};
 }
