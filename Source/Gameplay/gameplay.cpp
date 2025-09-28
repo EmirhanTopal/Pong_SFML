@@ -1,4 +1,5 @@
 #include "../../Header/Gameplay/Gameplay.h"
+#include "../../Header/Utility/TimeService.h"
 
 namespace Gameplay_N
 {
@@ -26,5 +27,6 @@ namespace Gameplay_N
 		paddle_1 = new Paddle(player1_pos_x, player1_pos_y);
 		paddle_2 = new Paddle(player2_pos_x, player2_pos_y);
 		boundaries = new Boundary();
+		timeService = new Utility_N::TimeService();
 	}
 }

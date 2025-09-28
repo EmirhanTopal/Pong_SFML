@@ -8,6 +8,7 @@ namespace Core_N
 		game_window_manager = new GameWindowManager(); //allocate memory for GameWindowManager with new keyword because of game_window_manager is a pointer.
 		event_manager = new Event_N::EventManager(); // allocate memory for EventManager with new keyword because of event_manager is a pointer.
 		gameplay_manager = new Gameplay_N::GameplayManager(); // allocate memory for GameplayManager with new keyword because of gameplay_manager is a pointer.
+		gameplay_manager->timeService->initialize();
 		game_window_manager->initialize(); // initalize the game window.
 	}
 
@@ -23,9 +24,10 @@ namespace Core_N
 
 	void GameLoop::update()
 	{
-		gameplay_manager->ball->update(gameplay_manager->paddle_1, gameplay_manager->paddle_2);
-		gameplay_manager->paddle_1->update(event_manager, sf::Keyboard::W, sf::Keyboard::S);
-		gameplay_manager->paddle_2->update(event_manager, sf::Keyboard::Up, sf::Keyboard::Down);
+		gameplay_manager->ball->update(gameplay_manager->paddle_1, gameplay_manager->paddle_2, gameplay_manager->timeService);
+		gameplay_manager->paddle_1->update(event_manager, sf::Keyboard::W, sf::Keyboard::S, gameplay_manager->timeService);
+		gameplay_manager->paddle_2->update(event_manager, sf::Keyboard::Up, sf::Keyboard::Down, gameplay_manager->timeService);
+		gameplay_manager->timeService->update();
 	}
 
 	void GameLoop::render()

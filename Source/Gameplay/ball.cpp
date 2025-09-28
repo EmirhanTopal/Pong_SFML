@@ -11,10 +11,10 @@ namespace Gameplay_N
 		initializeVariables();
 	}
 
-	void Ball::update(Paddle* _player1, Paddle* _player2)
+	void Ball::update(Paddle* _player1, Paddle* _player2, Utility_N::TimeService* _time_service)
 	{
-		ball_move();
-		handlePaddleCollision(_player1, _player2);
+		ball_move(_time_service);
+		handlePaddleCollision(_player1, _player2, _time_service);
 	}
 
 	void Ball::render(RenderWindow *_game_window)
@@ -37,12 +37,19 @@ namespace Gameplay_N
 		ball_sprite.setPosition(ball_pos_x, ball_pos_y);
 	}
 
-	void Ball::ball_move()
+	void Ball::ball_move(Utility_N::TimeService* _time_service)
 	{
-		ball_sprite.move(velocity);
+		if (_time_service->updateDelayTime(_time_service->getDeltaTime()))
+		{
+			ballState = MOVING;
+			if (ballState == MOVING)
+			{
+				ball_sprite.move(velocity * _time_service->getDeltaTime());
+			}
+		}
 	}
 
-	void Ball::handlePaddleCollision(Paddle* _player1, Paddle* _player2)
+	void Ball::handlePaddleCollision(Paddle* _player1, Paddle* _player2, Utility_N::TimeService* _time_service)
 	{
 		// get sprites
 		const RectangleShape& player1PaddleSprite = _player1->getPaddleSprite(); // reference type 
@@ -56,7 +63,7 @@ namespace Gameplay_N
 		// adjust inctersect situations
 		checkIntersectWithPlayerBounds(ballBounds, player1PaddleBounds, player2PaddleBounds);
 		checkIntersectWithBounds(ballBounds);
-		resetBall(ballBounds, player1PaddleBounds, player2PaddleBounds);
+		resetBall(ballBounds, player1PaddleBounds, player2PaddleBounds, _time_service);
 	}
 
 	void Ball::checkIntersectWithPlayerBounds(FloatRect _ball_bounds, FloatRect _p1PaddleBounds, FloatRect _p2PaddleBounds)
@@ -75,12 +82,14 @@ namespace Gameplay_N
 			velocity.y *= -1;
 	}
 
-	void Ball::resetBall(FloatRect _ball_bounds, FloatRect _p1PaddleBounds, FloatRect _p2PaddleBounds)
+	void Ball::resetBall(FloatRect _ball_bounds, FloatRect _p1PaddleBounds, FloatRect _p2PaddleBounds, Utility_N::TimeService *_time_service)
 	{
 		if (((_ball_bounds.left + _ball_bounds.width) < _p1PaddleBounds.left)
 			|| _ball_bounds.left > (_p2PaddleBounds.left + _p2PaddleBounds.width))
 		{
 			ball_sprite.setPosition(center_pos_x, center_pos_y);
+			ballState = IDLE;
+			_time_service->elapsed_delay_time = 0;
 		}
 	}
 
