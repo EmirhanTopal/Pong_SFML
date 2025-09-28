@@ -145,6 +145,7 @@
     <ClCompile Include="Source\Gameplay\boundary.cpp" />
     <ClCompile Include="Source\Gameplay\gameplay.cpp" />
     <ClCompile Include="Source\Gameplay\paddle.cpp" />
+    <ClCompile Include="Source\Utility\timeService.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Event\Event.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Header\Gameplay\Boundary.h" />
     <ClInclude Include="Header\Gameplay\Gameplay.h" />
     <ClInclude Include="Header\Gameplay\Paddle.h" />
+    <ClInclude Include="Header\Utility\TimeService.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
