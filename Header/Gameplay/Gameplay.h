@@ -3,6 +3,7 @@
 #include "Paddle.h"
 #include "Boundary.h"
 #include "../Utility/TimeService.h"
+#include "../UI/UIService.h"
 
 namespace Gameplay_N
 {
@@ -23,6 +24,7 @@ namespace Gameplay_N
 			Paddle* paddle_2;
 			Boundary* boundaries;
 			Utility_N::TimeService *timeService;
+			UI_N::UIService *UIService;
 
 			GameplayManager();
 			void update();

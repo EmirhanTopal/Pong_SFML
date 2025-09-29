@@ -29,8 +29,8 @@ namespace Gameplay_N
 			const float center_pos_x = 960.0f;
 			const float center_pos_y = 540.0f;
 
-			float ball_speed = 100.0f;
-			Vector2f velocity = Vector2f(ball_speed, 0.04f);
+			float ball_speed = 600.0f;
+			Vector2f velocity = Vector2f(ball_speed, 50.0f);
 
 			void loadTextures();
 			void initializeVariables();

@@ -145,6 +145,7 @@
     <ClCompile Include="Source\Gameplay\boundary.cpp" />
     <ClCompile Include="Source\Gameplay\gameplay.cpp" />
     <ClCompile Include="Source\Gameplay\paddle.cpp" />
+    <ClCompile Include="Source\UI\UIService.cpp" />
     <ClCompile Include="Source\Utility\timeService.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,10 +156,13 @@
     <ClInclude Include="Header\Gameplay\Boundary.h" />
     <ClInclude Include="Header\Gameplay\Gameplay.h" />
     <ClInclude Include="Header\Gameplay\Paddle.h" />
+    <ClInclude Include="Header\UI\UIService.h" />
     <ClInclude Include="Header\Utility\TimeService.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="Assets\.vs\slnx.sqlite" />
+    <None Include="Assets\.vs\VSWorkspaceState.json" />
     <None Include="README.md" />
     <None Include="UpgradeLog.htm">
       <DeploymentContent>true</DeploymentContent>
@@ -168,6 +172,14 @@
     <Image Include="Assets\Textures\Ball.png" />
     <Image Include="Assets\Textures\HorizontalLine.png" />
     <Image Include="Assets\Textures\Paddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Aloevera-OVoWO.ttf" />
+    <Font Include="Assets\Fonts\AmberyGardenRegular-PKjGd.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Sounds\Ball_Bounce.wav" />
+    <Media Include="Assets\Sounds\Pong_BGM.mp3" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
