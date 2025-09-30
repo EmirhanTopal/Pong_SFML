@@ -27,6 +27,7 @@ namespace Core_N
 		gameplay_manager->ball->update(gameplay_manager->paddle_1, gameplay_manager->paddle_2, gameplay_manager->timeService);
 		gameplay_manager->paddle_1->update(event_manager, sf::Keyboard::W, sf::Keyboard::S, gameplay_manager->timeService);
 		gameplay_manager->paddle_2->update(event_manager, sf::Keyboard::Up, sf::Keyboard::Down, gameplay_manager->timeService);
+		gameplay_manager->UIService->update(gameplay_manager->paddle_1->getScore(), gameplay_manager->paddle_2->getScore());
 		gameplay_manager->timeService->update();
 	}
 

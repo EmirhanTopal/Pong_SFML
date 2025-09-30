@@ -14,6 +14,12 @@ namespace UI_N
 		createRightScoreBoard();
 	}
 
+	void UIService::update(int _player_1_score, int _player_2_score)
+	{
+		left_score_text.setString(scoreBoardUpdateText(_player_1_score));
+		right_score_text.setString(scoreBoardUpdateText(_player_2_score));
+	}
+
 	void UIService::render(sf::RenderWindow *_game_window)
 	{
 		_game_window->draw(left_score_text);
@@ -41,5 +47,10 @@ namespace UI_N
 		right_score_text.setPosition(right_score_pos_x, right_score_pos_y);
 		right_score_text.setCharacterSize(font_size);
 		right_score_text.setString(initial_string);
+	}
+
+	sf::String UIService::scoreBoardUpdateText(int _player_score)
+	{
+		return (_player_score < 10 ? "0" : "") + std::to_string(_player_score);
 	}
 }

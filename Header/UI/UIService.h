@@ -22,16 +22,15 @@ namespace UI_N
 			sf::Color font_color = sf::Color::White;
 			std::string initial_string = "00";
 
-			int player_1 = 0;
-			int player_2 = 0;
-
 			void loadFontTexture();
 			void createLeftScoreBoard();
 			void createRightScoreBoard();
-
+			sf::String scoreBoardUpdateText(int _player_score);
+				
 		public:
 			UIService();
 			void initialize();
+			void update(int _player_1_score, int _player_2_score);
 			void render(sf::RenderWindow* _game_window);
 	};
 }

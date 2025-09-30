@@ -63,15 +63,54 @@ namespace Gameplay_N
 		// adjust inctersect situations
 		checkIntersectWithPlayerBounds(ballBounds, player1PaddleBounds, player2PaddleBounds);
 		checkIntersectWithBounds(ballBounds);
-		resetBall(ballBounds, player1PaddleBounds, player2PaddleBounds, _time_service);
+		resetBall(ballBounds, player1PaddleBounds, player2PaddleBounds, _time_service, _player1, _player2);
 	}
 
 	void Ball::checkIntersectWithPlayerBounds(FloatRect _ball_bounds, FloatRect _p1PaddleBounds, FloatRect _p2PaddleBounds)
 	{
+		float p1_center = _p1PaddleBounds.top + (_p1PaddleBounds.height / 2);
+		float p2_center = _p2PaddleBounds.top + (_p2PaddleBounds.height / 2);
+		float ball_center = _ball_bounds.top + (_ball_bounds.height / 2);
 		if (_p1PaddleBounds.intersects(_ball_bounds))
-			velocity.x *= -1;
+		{
+			if (!isCollisionContinue)
+			{
+				if (p1_center > ball_center)
+				{
+					if (velocity.y < 0)
+						velocity.y *= -1;
+				}
+				else if (p1_center < ball_center)
+				{
+					if (velocity.y > 0)
+						velocity.y *= -1;
+				}
+				velocity.x *= -1;
+				increaseBallSpeed();
+				isCollisionContinue = true;
+			}
+		}
 		else if (_p2PaddleBounds.intersects(_ball_bounds))
-			velocity.x *= -1;
+		{
+			if (!isCollisionContinue)
+			{
+				if (p2_center > ball_center)
+				{
+					if (velocity.y < 0)
+						velocity.y *= -1;
+				}
+				else if (p2_center < ball_center)
+				{
+					if (velocity.y > 0)
+						velocity.y *= -1;
+				}
+				velocity.x *= -1;
+				increaseBallSpeed();
+				isCollisionContinue = true;
+			}
+		}
+		else
+			isCollisionContinue = false;
 	}
 
 	void Ball::checkIntersectWithBounds(FloatRect _ball_bounds)
@@ -82,15 +121,41 @@ namespace Gameplay_N
 			velocity.y *= -1;
 	}
 
-	void Ball::resetBall(FloatRect _ball_bounds, FloatRect _p1PaddleBounds, FloatRect _p2PaddleBounds, Utility_N::TimeService *_time_service)
+	void Ball::resetBall(FloatRect _ball_bounds, FloatRect _p1PaddleBounds, FloatRect _p2PaddleBounds, Utility_N::TimeService *_time_service, Paddle* _player1, Paddle* _player2)
 	{
-		if (((_ball_bounds.left + _ball_bounds.width) < _p1PaddleBounds.left)
-			|| _ball_bounds.left > (_p2PaddleBounds.left + _p2PaddleBounds.width))
+		if ((_ball_bounds.left + _ball_bounds.width) < _p1PaddleBounds.left)
 		{
+			_player2->increaaseScore();
+			_player1->resetPos(1);
+			_player2->resetPos(2);
+			ball_sprite.setPosition(center_pos_x, center_pos_y);
+			ballState = IDLE;
+			_time_service->elapsed_delay_time = 0;
+		}
+		else if (_ball_bounds.left > (_p2PaddleBounds.left + _p2PaddleBounds.width))
+		{
+			_player1->increaaseScore();
+			_player1->resetPos(1);
+			_player2->resetPos(2);
 			ball_sprite.setPosition(center_pos_x, center_pos_y);
 			ballState = IDLE;
 			_time_service->elapsed_delay_time = 0;
 		}
 	}
 
+	void Ball::increaseBallSpeed()
+	{
+		ball_speed_x += 100.0f;
+		ball_speed_y += 20.0f;
+
+		if (velocity.x < 0)
+			velocity.x = -ball_speed_x;
+		else
+			velocity.x = ball_speed_x;
+
+		if (velocity.y < 0)
+			velocity.y = -ball_speed_y;
+		else
+			velocity.y = ball_speed_y;
+	}
 }

@@ -10,12 +10,6 @@ namespace Gameplay_N
 	class GameplayManager
 	{
 		private:
-			float player1_pos_x = 40.0f;
-			float player1_pos_y = 540.0f;
-
-			float player2_pos_x = 1860.0f;
-			float player2_pos_y = 540.0f;
-
 			void initialize();
 
 		public:
