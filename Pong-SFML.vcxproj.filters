@@ -69,6 +69,9 @@
     <ClCompile Include="Source\Utility\timeService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\UI\UIService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Core\GameWindowManager.h">
@@ -95,11 +98,16 @@
     <ClInclude Include="Header\Utility\TimeService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\UI\UIService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="README.md" />
     <None Include="UpgradeLog.htm" />
+    <None Include="Assets\.vs\slnx.sqlite" />
+    <None Include="Assets\.vs\VSWorkspaceState.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\Ball.png">
@@ -111,5 +119,15 @@
     <Image Include="Assets\Textures\Paddle.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Aloevera-OVoWO.ttf" />
+    <Font Include="Assets\Fonts\AmberyGardenRegular-PKjGd.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Sounds\Pong_BGM.mp3" />
+    <Media Include="Assets\Sounds\Ball_Bounce.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

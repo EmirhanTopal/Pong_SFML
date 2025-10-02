@@ -3,18 +3,13 @@
 #include "Paddle.h"
 #include "Boundary.h"
 #include "../Utility/TimeService.h"
+#include "../UI/UIService.h"
 
 namespace Gameplay_N
 {
 	class GameplayManager
 	{
 		private:
-			float player1_pos_x = 40.0f;
-			float player1_pos_y = 540.0f;
-
-			float player2_pos_x = 1860.0f;
-			float player2_pos_y = 540.0f;
-
 			void initialize();
 
 		public:
@@ -23,6 +18,7 @@ namespace Gameplay_N
 			Paddle* paddle_2;
 			Boundary* boundaries;
 			Utility_N::TimeService *timeService;
+			UI_N::UIService *UIService;
 
 			GameplayManager();
 			void update();

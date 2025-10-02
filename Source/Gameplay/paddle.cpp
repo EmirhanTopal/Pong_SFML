@@ -49,4 +49,38 @@ namespace Gameplay_N
 	{
 		return paddle_sprite;
 	}
+
+	void Paddle::increaaseScore()
+	{
+		player_score++;
+	}
+
+	int Paddle::getScore()
+	{
+		return player_score;
+	}
+
+	float Paddle::getPosX(int _p_value)
+	{
+		if (_p_value == 1)
+			return player1_pos_x;
+		else
+			return player2_pos_x;
+	}
+
+	float Paddle::getPosY(int _p_value)
+	{
+		if (_p_value == 1)
+			return player1_pos_y;
+		else
+			return player2_pos_y;
+	}
+
+	void Paddle::resetPos(int _p_value)
+	{
+		if (_p_value == 1)
+			paddle_sprite.setPosition(player1_pos_x, player1_pos_y);
+		else
+			paddle_sprite.setPosition(player2_pos_x, player2_pos_y);
+	}
 }
