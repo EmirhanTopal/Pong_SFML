@@ -1,4 +1,5 @@
 #include "../../Header/Gameplay/Ball.h"
+#include "../../Header/Sound/SoundManager.h"
 
 namespace Gameplay_N
 {
@@ -6,9 +7,6 @@ namespace Gameplay_N
 	{
 		current_ball_speed_x = ball_speed_x;
 		current_ball_speed_y = ball_speed_y;
-		/*ball_sprite.setRadius(ball_radius);
-		ball_sprite.setPosition(ball_pos_x, ball_pos_y);
-		ball_sprite.setFillColor(Color::Blue);*/
 		loadTextures();
 		initializeVariables();
 	}
@@ -89,6 +87,7 @@ namespace Gameplay_N
 				}
 				velocity.x *= -1;
 				increaseBallSpeed();
+				Sound_N::SoundManager::playSoundEffect(Sound_N::SoundType::BALL_BOUNCE);
 				isCollisionContinue = true;
 			}
 		}
@@ -108,6 +107,7 @@ namespace Gameplay_N
 				}
 				velocity.x *= -1;
 				increaseBallSpeed();
+				Sound_N::SoundManager::playSoundEffect(Sound_N::SoundType::BALL_BOUNCE);
 				isCollisionContinue = true;
 			}
 		}
@@ -142,7 +142,6 @@ namespace Gameplay_N
 		{
 			_player1->resetPos(1);
 			_player2->resetPos(2);
-			
 			ball_sprite.setPosition(center_pos_x, center_pos_y);
 			ballState = IDLE;
 			_time_service->elapsed_delay_time = 0;
@@ -169,10 +168,12 @@ namespace Gameplay_N
 	void Ball::resetBallSpeed(int _p_value)
 	{
 		current_ball_speed_x = ball_speed_x;
+
 		if (_p_value == 1)
 			velocity.x = -current_ball_speed_x;
 		else
 			velocity.x = current_ball_speed_x;
+
 		current_ball_speed_y = ball_speed_y;
 		velocity.y = current_ball_speed_y;
 	}
