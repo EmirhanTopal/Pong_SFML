@@ -145,6 +145,7 @@
     <ClCompile Include="Source\Gameplay\boundary.cpp" />
     <ClCompile Include="Source\Gameplay\gameplay.cpp" />
     <ClCompile Include="Source\Gameplay\paddle.cpp" />
+    <ClCompile Include="Source\Sound\soundManager.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
     <ClCompile Include="Source\Utility\timeService.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="Header\Gameplay\Boundary.h" />
     <ClInclude Include="Header\Gameplay\Gameplay.h" />
     <ClInclude Include="Header\Gameplay\Paddle.h" />
+    <ClInclude Include="Header\Sound\SoundManager.h" />
     <ClInclude Include="Header\UI\UIService.h" />
     <ClInclude Include="Header\Utility\TimeService.h" />
   </ItemGroup>

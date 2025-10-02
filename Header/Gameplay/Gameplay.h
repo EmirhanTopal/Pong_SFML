@@ -4,6 +4,7 @@
 #include "Boundary.h"
 #include "../Utility/TimeService.h"
 #include "../UI/UIService.h"
+#include "../Sound/SoundManager.h"
 
 namespace Gameplay_N
 {
@@ -19,6 +20,7 @@ namespace Gameplay_N
 			Boundary* boundaries;
 			Utility_N::TimeService *timeService;
 			UI_N::UIService *UIService;
+			Sound_N::SoundManager *soundManager;
 
 			GameplayManager();
 			void update();
