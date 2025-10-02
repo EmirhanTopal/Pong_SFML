@@ -32,7 +32,9 @@ namespace Gameplay_N
 			//paddle orta tarafýna göre yukarý aþaðý düzeltilecek
 			float ball_speed_x = 1000.0f;
 			float ball_speed_y = 100.0f;
-			Vector2f velocity = Vector2f(ball_speed_x, ball_speed_y);
+			float current_ball_speed_x = 1000.0f;
+			float current_ball_speed_y = 100.0f;
+			Vector2f velocity = Vector2f(current_ball_speed_x, current_ball_speed_y);
 
 			void loadTextures();
 			void initializeVariables();
@@ -43,11 +45,13 @@ namespace Gameplay_N
 
 		public:
 			bool isCollisionContinue = false;
+			bool isScored = false;
 
 			Ball();
 			void update(Paddle* _player1, Paddle* _player2, Utility_N::TimeService *_time_service); // for ball movement 
 			void render(RenderWindow *_game_window); // for rendering ball on the window
 			void handlePaddleCollision(Paddle* _player1, Paddle* _player2, Utility_N::TimeService* _time_service);
 			void increaseBallSpeed();
+			void resetBallSpeed(int p_value);
 	};
 }
