@@ -1,6 +1,7 @@
 #include "../../Header/Gameplay/Gameplay.h"
 #include "../../Header/Utility/TimeService.h"
 #include "../../Header/UI/UIService.h"
+#include "../../Header/Sound/SoundManager.h"
 
 namespace Gameplay_N
 {
@@ -31,5 +32,7 @@ namespace Gameplay_N
 		boundaries = new Boundary();
 		timeService = new Utility_N::TimeService();
 		UIService = new UI_N::UIService();
+		soundManager = new Sound_N::SoundManager;
+		soundManager->initialize();
 	}
 }
